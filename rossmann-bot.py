@@ -15,7 +15,7 @@ TOKEN = '7766243809:AAEsHqlxt37yNnZ7cIn6TxCrn6zg5WTsvHw'
 #https://api.telegram.org/bot7766243809:AAEsHqlxt37yNnZ7cIn6TxCrn6zg5WTsvHw/getUpdates
 
 #weebhook
-#https://api.telegram.org/bot7766243809:AAEsHqlxt37yNnZ7cIn6TxCrn6zg5WTsvHw/setWebhook?url=https://01321f72795944.lhr.life
+#https://api.telegram.org/bot7766243809:AAEsHqlxt37yNnZ7cIn6TxCrn6zg5WTsvHw/setWebhook?url=https://rossmannbot-6sz3.onrender.com
 
 #send message
 #https://api.telegram.org/bot7766243809:AAEsHqlxt37yNnZ7cIn6TxCrn6zg5WTsvHw/sendMessage?chat_id=7554977627&text=Hi Leandro!
@@ -74,12 +74,11 @@ def parse_message(message):
     store_id = message['message']['text']
 
     store_id = store_id.replace('/','')
-
+    
     try:
         store_id = int(store_id)
     except ValueError:
         store_id = 'error'
-
     return chat_id, store_id
 
 #API Initialize
@@ -108,7 +107,7 @@ def index():
                 return Response('Ok', status=200)
         else:
             send_message(chat_id, 'Store ID is wrong')
-            return Response ('OK',status=200)
+            return Response('OK',status=200)
     else:
         return '<h1> Rossmann Telegram BOT </h1>' 
 if __name__ == '__main__':
